@@ -137,10 +137,10 @@ img {
 }
 .hero-logo-image {
     display: block;
-    max-width: 600px; /* 画像の最大幅（この数値を変更してサイズを調整） */
-    width: 60%;       /* 画面幅に対する割合 */
+    max-width: 700px; /* 画像の最大幅（この数値を変更してサイズを調整） */
+    width: 70%;       /* 画面幅に対する割合 */
     height: auto;     /* 高さは自動で調整 */
-    margin: -35% auto 5% auto; /* 上下左右の余白（中央揃えにし、下に30pxの余白） */
+    margin: -5% auto -5% auto; /* 上下左右の余白（中央揃えにし、下に30pxの余白） */
 }
 .hero-content {
     z-index: 1;
@@ -409,12 +409,17 @@ img {
     fill: var(--color-bg); /* 波の色をコンテンツ背景色に設定 */
 }
 
-
 /* ===== レスポンシブ対応 ===== */
 @media (max-width: 768px) {
     .hero h1 { font-size: 2.5rem; }
     .hero p { font-size: 1rem; }
-
+    .hero-logo-image {
+    display: block;
+    max-width: 600px; /* 画像の最大幅（この数値を変更してサイズを調整） */
+    width: 60%;       /* 画面幅に対する割合 */
+    height: auto;     /* 高さは自動で調整 */
+    margin: 0px auto 5% auto; /* 上下左右の余白（中央揃えにし、下に30pxの余白） */
+}
     .main-nav {
         position: fixed;
         top: 0;
@@ -479,4 +484,5 @@ img {
     .menu-toggle.is-active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
     }
+    
 }
