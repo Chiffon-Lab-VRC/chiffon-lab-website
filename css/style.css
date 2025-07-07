@@ -1,0 +1,482 @@
+/* ===== 基本設定と変数 ===== */
+:root {
+    --font-primary: 'Poppins', 'Noto Sans JP', sans-serif;
+    --font-secondary: 'Noto Sans JP', sans-serif;
+    
+    --color-text: #2D3748; /* ダークグレー */
+    --color-bg: #F7FAFC; /* 明るいグレー */
+    --color-bg-light: #FFFFFF;
+    
+    --color-base: #B3E5FC; /* パステル水色 */
+
+    /* 各社のテーマカラー */
+    --color-lab: #A7D7E7;
+    --color-manufacturing: #A8E6CF;
+    --color-electronics: #D7BDE2;
+    --color-networks: #F9E79F;
+    --color-heavy: #D5DBDB;
+    --color-chemicals: #F5CBA7;
+
+    --header-height: 70px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-secondary);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: var(--color-base);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #555;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== ヘッダー ===== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.site-header .container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-text);
+}
+.logo:hover { color: var(--color-base); }
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: var(--color-text);
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-base);
+    transition: width 0.3s ease;
+}
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle { display: none; } /* スマホ用 */
+
+/* ===== ヒーローセクション (トップページ) ===== */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(to top, #e3f2fd, #f1f8e9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-text);
+    overflow: hidden;
+}
+.hero-logo-image {
+    display: block;
+    max-width: 600px; /* 画像の最大幅（この数値を変更してサイズを調整） */
+    width: 60%;       /* 画面幅に対する割合 */
+    height: auto;     /* 高さは自動で調整 */
+    margin: -35% auto 5% auto; /* 上下左右の余白（中央揃えにし、下に30pxの余白） */
+}
+.hero-content {
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* ===== 波のアニメーション (トップページ) ===== */
+.waves-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    min-height: 100px;
+    max-height: 150px;
+}
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px; /* Safari用 */
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes move-forever {
+    0% { transform: translate3d(-90px,0,0); }
+    100% { transform: translate3d(85px,0,0); }
+}
+
+
+/* ===== コンテンツセクション ===== */
+.content-section {
+    padding: 80px 0;
+    text-align: center;
+}
+.content-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+.content-section p {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.bg-light {
+    background-color: var(--color-bg-light);
+}
+.content-section .lead {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 1rem auto 3rem auto; /* 上下の余白を調整 */
+    line-height: 1.8;
+}
+
+.about-details {
+    display: grid;
+    /* 画面幅に応じてカラム数が自動で変わるレスポンシブなグリッド */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* カラム間の余白 */
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.about-column h3 {
+    font-size: 1.4rem;
+    color: var(--color-base); /* テーマカラーを適用 */
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-base); /* テーマカラーの下線 */
+}
+
+.about-column p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.content-section .mission {
+    font-size: 1.1rem;
+    font-weight: 500; /* 少し太字に */
+    max-width: 800px;
+    margin: 2rem auto 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0; /* 上の要素との区切り線 */
+}
+
+/* ===== グループ会社カード ===== */
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.company-card {
+    display: block;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    color: var(--color-text);
+    border-top: 5px solid var(--company-color);
+}
+.company-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    color: var(--color-text);
+}
+
+.card-content {
+    padding: 30px;
+}
+.card-content h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+.card-content p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0;
+}
+.card-bottom-logo {
+    width: 80%;           /* カードの幅に対して80%の横幅にする */
+    max-width: 300px;     /* ただし、最大でも150pxまで */
+    height: auto;         /* 高さは自動調整 */
+    display: block;       /* 中央揃えのために必要 */
+    margin: -20% auto -10% auto;
+}
+
+/* ===== ボタン ===== */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-base);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.btn:hover {
+    background-color: #81d4fa;
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* ===== フッター ===== */
+.site-footer {
+    background-color: #37474F;
+    color: #B0BEC5;
+    padding: 30px 0;
+    text-align: center;
+}
+
+/* ===== 個別ページ用スタイル ===== */
+.page-header {
+    padding-top: calc(var(--header-height) + 100px);
+    padding-bottom: 120px;
+    background-color: var(--color-base);
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.page-header h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 個別ページの色分け */
+.page-laboratory { --color-base: var(--color-lab); }
+.page-manufacturing { --color-base: var(--color-manufacturing); }
+.page-electronics { --color-base: var(--color-electronics); }
+.page-networks { --color-base: var(--color-networks); }
+.page-heavy-industrial { --color-base: var(--color-heavy); }
+.page-chemicals { --color-base: var(--color-chemicals); }
+
+
+.page-content {
+    padding: 40px 0 80px;
+}
+.page-content .content-section {
+    text-align: left;
+    padding: 40px 0;
+}
+
+/* ===== アニメーション ===== */
+.animate-fade-in {
+    animation: fadeIn 1s 0.2s ease-out forwards;
+    opacity: 0;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== 個別ページ用 波（メインページ再利用版） ===== */
+.page-wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+.page-wave-container .waves {
+    /* SVG自体の高さをコンテナの高さと正確に合わせる */
+    height: 100px;
+    min-height: 100px;
+}
+.page-wave-container .parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+    fill: var(--color-bg); /* 波の色をコンテンツ背景色に設定 */
+}
+
+
+/* ===== レスポンシブ対応 ===== */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1rem; }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background-color: white;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        padding-top: 100px;
+        transition: right 0.4s ease-in-out;
+    }
+    .main-nav.is-open {
+        right: 0;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    .main-nav li {
+        width: 100%;
+        text-align: center;
+    }
+    .main-nav a {
+        display: block;
+        padding: 20px;
+        width: 100%;
+    }
+    .main-nav a:hover::after {
+        width: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        width: 30px;
+        height: 22px;
+        position: relative;
+    }
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--color-text);
+        border-radius: 3px;
+        position: absolute;
+        transition: all 0.3s;
+    }
+    .menu-toggle span:nth-child(1) { top: 0; }
+    .menu-toggle span:nth-child(2) { top: 9px; }
+    .menu-toggle span:nth-child(3) { bottom: 0; }
+    
+    .menu-toggle.is-active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    .menu-toggle.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
