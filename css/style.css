@@ -486,3 +486,41 @@ img {
     }
     
 }
+/* ===== 時刻表示ページ用のスタイル ===== */
+.time-display {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.time-display h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.time-display #current-time {
+    font-family: 'Poppins', sans-serif;
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.time-display #current-date {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .time-display #current-time {
+        font-size: 3.5rem;
+    }
+    .time-display #current-date {
+        font-size: 1rem;
+    }
+}
